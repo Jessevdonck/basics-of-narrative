@@ -3,6 +3,16 @@
 import { useState } from "react";
 import { characters } from "@/lib/characters";
 
+// Helper function to add basePath for GitHub Pages
+// This should match the basePath in next.config.js
+const BASE_PATH = '/basics-of-narrative';
+const getImagePath = (path: string) => {
+  if (path.startsWith('/')) {
+    return `${BASE_PATH}${path}`;
+  }
+  return path;
+};
+
 export default function Home() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string | null>(null);
@@ -14,7 +24,7 @@ export default function Home() {
   return (
     <main
       className="w-full min-h-screen bg-cover bg-center overflow-hidden flex items-center justify-center relative"
-      style={{ backgroundImage: "url('/background.jpg')" }}
+      style={{ backgroundImage: `url('${getImagePath('/background.jpg')}')` }}
     >
       {/* Dark overlay to dim background and keep characters visible */}
       <div className="fixed inset-0 bg-black/85 z-0" />
@@ -31,7 +41,7 @@ export default function Home() {
             <div
               className="w-full h-full bg-cover bg-center transition-all duration-500 ease-out flex items-center justify-center"
               style={{
-                backgroundImage: `url('${character.image}')`,
+                backgroundImage: `url('${getImagePath(character.image)}')`,
                 backgroundPosition: "center",
                 backgroundSize: "contain",
                 backgroundRepeat: "no-repeat",
@@ -88,7 +98,7 @@ export default function Home() {
             {/* Character image */}
             <div className="flex-shrink-0 w-full md:w-64 h-48 md:h-96 bg-black/50 rounded-lg overflow-hidden flex items-center justify-center">
               <img
-                src={selectedCharacter.image || "/placeholder.svg"}
+                src={getImagePath(selectedCharacter.image || "/placeholder.svg")}
                 alt={selectedCharacter.name}
                 className="w-auto h-full max-w-full object-contain"
               />
