@@ -123,4 +123,12 @@
     body {
         @apply bg-background text-foreground;
     }
+    ::selection {
+        background-color: rgb(20 83 45 / 0.5); /* dark green with transparency */
+        color: rgb(255 255 255);
+    }
+    ::-moz-selection {
+        background-color: rgb(20 83 45 / 0.5); /* Firefox support */
+        color: rgb(255 255 255);
+    }
 }
