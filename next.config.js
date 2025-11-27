@@ -6,9 +6,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
-  basePath: '/basics-of-narrative',
-  assetPrefix: '/basics-of-narrative/',
+  output: 'export',               // voor static export
+  basePath: '/basics-of-narrative',  // subpath van GitHub Pages
+  assetPrefix: '/basics-of-narrative/', // voor statische assets zoals afbeeldingen
 };
 
 module.exports = nextConfig;
