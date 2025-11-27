@@ -7,6 +7,8 @@ import "./globals.css"
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
+const BASE_PATH = '/basics-of-narrative';
+
 export const metadata: Metadata = {
   title: "Character Gallery | Ironworks",
   description: "The characters from Ironworks",
@@ -14,10 +16,10 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/favicon.png",
+        url: `${BASE_PATH}/images/favicon.png`,
       },
     ],
-    apple: "/apple-icon.png",
+    apple: `${BASE_PATH}/apple-icon.png`,
   },
 }
 
